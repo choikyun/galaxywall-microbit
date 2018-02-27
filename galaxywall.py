@@ -147,7 +147,8 @@ def scroll_walls(init=False):
         for y in range(4, 0, -1):
             for x in range(5):
                 buf[y][x] = buf[y-1][x]
-                flash_buf[y] = flash_buf[y-1]
+            flash_buf[y] = flash_buf[y-1]
+        flash_buf[0] = 0
         new_wall()
         music.pitch(440, duration=10, wait=False)
 
