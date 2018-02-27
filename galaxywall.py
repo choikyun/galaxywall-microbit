@@ -194,7 +194,6 @@ def check_over():
     for x in range(5):
         if buf[4][x] == WALL_COLOR:
             over = True
-
     if over:
         print_score()
         while True:
