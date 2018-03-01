@@ -4,38 +4,27 @@ import music
 
 """
 GALAXY WALL for Micro:bit
-Ver. 1.0.0 2018-02-28
+Ver. 1.0.1 2018-03-02 / 2018-02-28
 Choikyun
 """
 
 # Defines
 SHIP_FIX = 512
-
 SHIP_COLOR = 8
 WALL_COLOR = 6
-AIM_COLOR = 8
+AIM_COLOR = 7
 FLASH_COLOR = 9
 VOID_COLOR = 0
 
-FLASH_INTERVAL = 10
-BLINK_WAIT = 4
-
-
 # Globals
 ship_x = 2 * SHIP_FIX
-
 aim_point = AIM_COLOR
-aim_x = 3
-aim_y = 3
-aim_blink = BLINK_WAIT
-
+aim_x = aim_y = 3
+aim_blink = 4
 buf = [[0 for i in range(5)] for j in range(5)]
 flash_buf = [0] * 5
-
 tick = running_time()
-frame = 0
-score = 0
-
+frame = score = 0
 scroll = 300
 scroll_def = 160
 
@@ -66,7 +55,7 @@ def draw_aim():
 
     aim_blink -= 1
     if aim_blink == 0:
-        aim_blink = BLINK_WAIT
+        aim_blink = 4
         aim_point ^= AIM_COLOR
     if flash_buf[aim_y] == 0:
         buf[aim_y][aim_x] = aim_point
@@ -89,7 +78,7 @@ def check_line():
         for x in range(5):
             hit += buf[y][x]
         if hit == WALL_COLOR * 5:
-            flash_buf[y] = FLASH_INTERVAL
+            flash_buf[y] = 10
 
 
 def fill(line):
@@ -150,7 +139,7 @@ def scroll_walls(init=False):
             flash_buf[y] = flash_buf[y-1]
         flash_buf[0] = 0
         new_wall()
-        music.pitch(440, duration=10, wait=False)
+        music.pitch(440, duration=16, wait=False)
 
 
 def level_up():
@@ -177,6 +166,7 @@ def clear_buf():
 
 
 def init():
+    music.set_tempo(bpm=200)
     line = 2
     while line > 0:
         line -= 1
@@ -196,6 +186,7 @@ def check_over():
         if buf[4][x] == WALL_COLOR:
             over = True
     if over:
+        music.reset()
         print_score()
         while True:
             pass

@@ -1,4 +1,4 @@
-# GALAXY WALL for Micro:bit
+# GALAXY WALL for micro:bit
 
 迫りくる隕石群の隙間を埋めて消していくゲームです。
 
@@ -20,4 +20,8 @@ mu editor, uflash 等で Micro:bit に転送してください。
 
 かなりメモリがシビアですね、 PB-100 を思い出しました。
 
+プログラムコードが4KBを超えるとダメみたい。
 
+## 参考
+
+[GALAXY WALL '97 咳止組（咳めぐ）](http://cosmopatrol.web.fc2.com/game_galaxywall97.html)
