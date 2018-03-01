@@ -3,7 +3,7 @@ import random
 import music
 
 """
-GALAXY WALL for Micro:bit
+GALAXY WALL for micro:bit
 Ver. 1.0.1 2018-03-02 / 2018-02-28
 Choikyun
 """
