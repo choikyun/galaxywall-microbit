@@ -112,7 +112,6 @@ def move_ship():
         sound ^= 1
 
 
-
 def new_wall():
     line = buf[0]
     for i in range(5):
