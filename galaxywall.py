@@ -159,11 +159,11 @@ def clear_buf():
 
 
 def init():
-    music.set_tempo(bpm=200)
     line = 3
     while line > 0:
         line -= 1
         scroll_walls(init=True)
+    music.set_tempo(bpm=200)
 
 
 def print_score():
@@ -189,7 +189,7 @@ def wait():
     global tick
     while True:
         t = running_time()
-        if t - tick > 30:
+        if t - tick > 33:
             tick = t
             break
 
